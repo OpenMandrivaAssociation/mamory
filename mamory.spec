@@ -60,7 +60,7 @@ Devel package for libmamory
 
 %build
 %configure2_5x
-%make
+%make OPTFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC"
 
 %install
 rm -fr %{buildroot}
