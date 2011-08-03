@@ -16,6 +16,7 @@ Group: Emulators
 Source: http://prdownloads.sourceforge.net/mamory/%{name}-%{version}.tar.bz2
 URL: http://mamory.sourceforge.net/
 Requires: %{libname} = %{version}
+BuildRequires: expat-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 %package -n %{libname}
