@@ -1,36 +1,26 @@
-%define name mamory
-%define version 0.2.25
-%define release %mkrel 2
-%define lib_name_orig lib%{name}
 %define major 0
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname %{name} -d
 
-Summary: A Rom Management CLI
-Name: %{name}
-Version: %{version}
-Release: %{release}
-
-License: GPL
-Group: Emulators
-Source: http://prdownloads.sourceforge.net/mamory/%{name}-%{version}.tar.bz2
-URL: http://mamory.sourceforge.net/
-Requires: %{libname} = %{version}
-BuildRequires: expat-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
+Summary:	A Rom Management CLI
+Name:		mamory
+Version:	0.2.25
+Release:	3
+License:	GPL
+Group:		Emulators
+Source:		http://prdownloads.sourceforge.net/mamory/%{name}-%{version}.tar.bz2
+URL:		http://mamory.sourceforge.net/
+BuildRequires:	expat-devel
 
 %package -n %{libname}
-Summary: A Rom Management Library
-Group: Emulators
-Provides: %{libname} = %{version}-%{release}
-Obsoletes: %{_lib}%{name}0.2
+Summary:	A Rom Management Library
+Group:		Emulators
 
 %package -n %{develname}
-Summary: Devel package for libmamory
-Group: Emulators
-Requires: %{libname} = %{version}
-Provides: %{name}-devel = %{version}-%{release}
-Obsoletes: %{_lib}%{name}0.2-devel
+Summary:	Devel package for libmamory
+Group:		Emulators
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
 %description
 The Mamory CLI
@@ -63,31 +53,18 @@ Devel package for libmamory
 %make OPTFLAGS="%{optflags} -fPIC" CPPFLAGS="%{optflags} -fPIC"
 
 %install
-rm -fr %{buildroot}
 %makeinstall_std
 
-%post -p /sbin/ldconfig -n %{libname}
-
-%postun -p /sbin/ldconfig -n %{libname}
-
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING INSTALL README TODO
 %{_bindir}/%{name}
 
 %files -n %{libname}
-%defattr(-,root,root)
-%doc README
-%{_libdir}/lib%{name}.so.*
+%{_libdir}/lib%{name}.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc README
 %{_libdir}/lib%{name}.a
-%{_libdir}/lib%{name}.la
 %{_libdir}/lib%{name}.so
 %{_includedir}/%{name}/*
 
