@@ -5,7 +5,7 @@
 Summary:	A Rom Management CLI
 Name:		mamory
 Version:	0.2.25
-Release:	3
+Release:	4
 License:	GPL
 Group:		Emulators
 Source:		http://prdownloads.sourceforge.net/mamory/%{name}-%{version}.tar.bz2
