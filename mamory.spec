@@ -9,7 +9,7 @@ Release:	4
 License:	GPL
 Group:		Emulators
 Source:		http://prdownloads.sourceforge.net/mamory/%{name}-%{version}.tar.bz2
-URL:		http://mamory.sourceforge.net/
+URL:		https://mamory.sourceforge.net/
 BuildRequires:	expat-devel
 
 %package -n %{libname}
